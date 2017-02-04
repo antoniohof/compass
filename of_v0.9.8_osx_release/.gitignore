@@ -12,20 +12,12 @@ libs/openFrameworksCompiled/lib/*/*
 # apothecary
 scripts/apothecary
 
-# rule to avoid non-official addons going into git
-# see addons/.gitignore
-addons/*
-
-# rule to avoid non-official apps going into git
-# see apps/.gitignore
-apps/*
 
 # rule to ignore compiled / downloaded libs
 /libs/*
 !/libs/openFrameworks
 !/libs/openFrameworksCompiled
 
-# also, see examples/.gitignore
 
 #########################
 # general
@@ -34,14 +26,8 @@ apps/*
 [Bb]uild/
 [Oo]bj/
 *.o
-examples/**/[Dd]ebug*/
-examples/**/[Rr]elease*/
-examples/**/gcc-debug/
-examples/**/gcc-release/
-tests/**/[Dd]ebug*/
-tests/**/[Rr]elease*/
-tests/**/gcc-debug/
-tests/**/gcc-release/
+*examples/
+*tests/
 *.mode*
 *.app/
 *.pyc
@@ -130,6 +116,3 @@ Desktop.ini
 #########################
 # miscellaneous
 #########################
-
-.mailmap
-/apps*/

@@ -97,6 +97,8 @@ class ofxDatGui : public ofxDatGuiInteractiveObject
         ofxDatGuiFolder* getFolder(string label);
         ofxDatGuiDropdown* getDropdown(string label);
     
+    vector<ofxDatGuiComponent*> items;
+
     private:
     
         int mIndex;
@@ -124,7 +126,6 @@ class ofxDatGui : public ofxDatGuiInteractiveObject
         ofxDatGuiFooter* mGuiFooter;
         ofxDatGuiTheme* mTheme;
         ofxDatGuiAlignment mAlignment;
-        vector<ofxDatGuiComponent*> items;
         vector<ofxDatGuiComponent*> trash;
         static ofxDatGui* mActiveGui;
         static vector<ofxDatGui*> mGuis;

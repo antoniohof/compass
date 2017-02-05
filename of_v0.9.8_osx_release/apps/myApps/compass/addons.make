@@ -1,3 +1,5 @@
 ofxDatGui
+ofxIO
 ofxMidi
+ofxSerial
 ofxXmlSettings

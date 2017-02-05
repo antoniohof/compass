@@ -3,45 +3,49 @@
 #include "ofMain.h"
 #include "ofxMidi.h"
 #include "ofxDatGui.h"
+#include "ofxSerial.h"
+#include "globals.h"
 
 class ofApp : public ofBaseApp{
 
-	public:
-		void setup();
-		void update();
-		void draw();
+public:
+    void setup();
+    void update();
+    void draw();
 
-		void keyPressed(int key);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
+    void keyPressed(int key);
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
 	
     bool debug;
     
     //logo intro
     ofImage logo;
     
-    //window settings
-    bool isRetina;
+    //compass
+    ofVec3f compassValues;
+    bool bConnected;
+    void searchForCompass();
+    double searchInterval;
+    void saveCompassConfig();
     
-    //device orientation
-    //swap z with y, etc
+    //serial
+    ofx::IO::SerialDevice compassSerial;
     
-    //serial in
-    ofSerial serialIn;
-    
-    
-    //midi out
+    //midi
+    string selectedMidiDevice;
     ofxMidiOut midiOut;
-    double checkMidiListInterval;
-    void updateMidiList();
+    void refreshMidiList();
 
-    //gui
-    ofxDatGui * midiGui;
-    
-    ofxDatGuiFolder * serialFolder;
+    //interface
+    ofxDatGui * midiMenu;
+    ofxDatGui * serialMenu;
 
-    void setupGui();
+    void setupInterface();
 
+    void onButtonEvent(ofxDatGuiButtonEvent e);
+    void onDropdownEvent(ofxDatGuiDropdownEvent e);
+    void onTextInputEvent(ofxDatGuiTextInputEvent e);
     
 };

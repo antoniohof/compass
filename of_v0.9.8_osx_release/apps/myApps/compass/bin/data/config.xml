@@ -1,0 +1,6 @@
+<root>
+    <compassSerialName>/dev/cu.usbmodem1411</compassSerialName>
+    <baudrate>115200</baudrate>
+    <compassOrientation>horizontal</compassOrientation>
+    <separator>a</separator>
+</root>

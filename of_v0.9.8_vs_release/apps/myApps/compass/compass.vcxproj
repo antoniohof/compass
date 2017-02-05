@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>compass</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxDatGui\src;..\..\..\addons\ofxDatGui\src\components;..\..\..\addons\ofxDatGui\src\core;..\..\..\addons\ofxDatGui\src\libs;..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont;..\..\..\addons\ofxDatGui\src\themes;..\..\..\addons\ofxIO\libs;..\..\..\addons\ofxIO\libs\alphanum;..\..\..\addons\ofxIO\libs\alphanum\include;..\..\..\addons\ofxIO\libs\cpp-lru-cache;..\..\..\addons\ofxIO\libs\cpp-lru-cache\include;..\..\..\addons\ofxIO\libs\json;..\..\..\addons\ofxIO\libs\json\include;..\..\..\addons\ofxIO\libs\json\license;..\..\..\addons\ofxIO\libs\lz4;..\..\..\addons\ofxIO\libs\lz4\src;..\..\..\addons\ofxIO\libs\ofxIO;..\..\..\addons\ofxIO\libs\ofxIO\include;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO;..\..\..\addons\ofxIO\libs\ofxIO\src;..\..\..\addons\ofxIO\libs\snappy;..\..\..\addons\ofxIO\libs\snappy\src;..\..\..\addons\ofxIO\src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxSerial\libs;..\..\..\addons\ofxSerial\libs\ofxSerial;..\..\..\addons\ofxSerial\libs\ofxSerial\include;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO;..\..\..\addons\ofxSerial\libs\ofxSerial\src;..\..\..\addons\ofxSerial\libs\serial;..\..\..\addons\ofxSerial\libs\serial\include;..\..\..\addons\ofxSerial\libs\serial\include\serial;..\..\..\addons\ofxSerial\libs\serial\include\serial\impl;..\..\..\addons\ofxSerial\libs\serial\src;..\..\..\addons\ofxSerial\libs\serial\src\impl;..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports;..\..\..\addons\ofxSerial\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxDatGui\src;..\..\..\addons\ofxDatGui\src\components;..\..\..\addons\ofxDatGui\src\core;..\..\..\addons\ofxDatGui\src\libs;..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont;..\..\..\addons\ofxDatGui\src\themes;..\..\..\addons\ofxIO\libs;..\..\..\addons\ofxIO\libs\alphanum;..\..\..\addons\ofxIO\libs\alphanum\include;..\..\..\addons\ofxIO\libs\cpp-lru-cache;..\..\..\addons\ofxIO\libs\cpp-lru-cache\include;..\..\..\addons\ofxIO\libs\json;..\..\..\addons\ofxIO\libs\json\include;..\..\..\addons\ofxIO\libs\json\license;..\..\..\addons\ofxIO\libs\lz4;..\..\..\addons\ofxIO\libs\lz4\src;..\..\..\addons\ofxIO\libs\ofxIO;..\..\..\addons\ofxIO\libs\ofxIO\include;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO;..\..\..\addons\ofxIO\libs\ofxIO\src;..\..\..\addons\ofxIO\libs\snappy;..\..\..\addons\ofxIO\libs\snappy\src;..\..\..\addons\ofxIO\src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxSerial\libs;..\..\..\addons\ofxSerial\libs\ofxSerial;..\..\..\addons\ofxSerial\libs\ofxSerial\include;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO;..\..\..\addons\ofxSerial\libs\ofxSerial\src;..\..\..\addons\ofxSerial\libs\serial;..\..\..\addons\ofxSerial\libs\serial\include;..\..\..\addons\ofxSerial\libs\serial\include\serial;..\..\..\addons\ofxSerial\libs\serial\include\serial\impl;..\..\..\addons\ofxSerial\libs\serial\src;..\..\..\addons\ofxSerial\libs\serial\src\impl;..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports;..\..\..\addons\ofxSerial\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxDatGui\src;..\..\..\addons\ofxDatGui\src\components;..\..\..\addons\ofxDatGui\src\core;..\..\..\addons\ofxDatGui\src\libs;..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont;..\..\..\addons\ofxDatGui\src\themes;..\..\..\addons\ofxIO\libs;..\..\..\addons\ofxIO\libs\alphanum;..\..\..\addons\ofxIO\libs\alphanum\include;..\..\..\addons\ofxIO\libs\cpp-lru-cache;..\..\..\addons\ofxIO\libs\cpp-lru-cache\include;..\..\..\addons\ofxIO\libs\json;..\..\..\addons\ofxIO\libs\json\include;..\..\..\addons\ofxIO\libs\json\license;..\..\..\addons\ofxIO\libs\lz4;..\..\..\addons\ofxIO\libs\lz4\src;..\..\..\addons\ofxIO\libs\ofxIO;..\..\..\addons\ofxIO\libs\ofxIO\include;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO;..\..\..\addons\ofxIO\libs\ofxIO\src;..\..\..\addons\ofxIO\libs\snappy;..\..\..\addons\ofxIO\libs\snappy\src;..\..\..\addons\ofxIO\src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxSerial\libs;..\..\..\addons\ofxSerial\libs\ofxSerial;..\..\..\addons\ofxSerial\libs\ofxSerial\include;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO;..\..\..\addons\ofxSerial\libs\ofxSerial\src;..\..\..\addons\ofxSerial\libs\serial;..\..\..\addons\ofxSerial\libs\serial\include;..\..\..\addons\ofxSerial\libs\serial\include\serial;..\..\..\addons\ofxSerial\libs\serial\include\serial\impl;..\..\..\addons\ofxSerial\libs\serial\src;..\..\..\addons\ofxSerial\libs\serial\src\impl;..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports;..\..\..\addons\ofxSerial\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxDatGui\src;..\..\..\addons\ofxDatGui\src\components;..\..\..\addons\ofxDatGui\src\core;..\..\..\addons\ofxDatGui\src\libs;..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont;..\..\..\addons\ofxDatGui\src\themes;..\..\..\addons\ofxIO\libs;..\..\..\addons\ofxIO\libs\alphanum;..\..\..\addons\ofxIO\libs\alphanum\include;..\..\..\addons\ofxIO\libs\cpp-lru-cache;..\..\..\addons\ofxIO\libs\cpp-lru-cache\include;..\..\..\addons\ofxIO\libs\json;..\..\..\addons\ofxIO\libs\json\include;..\..\..\addons\ofxIO\libs\json\license;..\..\..\addons\ofxIO\libs\lz4;..\..\..\addons\ofxIO\libs\lz4\src;..\..\..\addons\ofxIO\libs\ofxIO;..\..\..\addons\ofxIO\libs\ofxIO\include;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx;..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO;..\..\..\addons\ofxIO\libs\ofxIO\src;..\..\..\addons\ofxIO\libs\snappy;..\..\..\addons\ofxIO\libs\snappy\src;..\..\..\addons\ofxIO\src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxSerial\libs;..\..\..\addons\ofxSerial\libs\ofxSerial;..\..\..\addons\ofxSerial\libs\ofxSerial\include;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx;..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO;..\..\..\addons\ofxSerial\libs\ofxSerial\src;..\..\..\addons\ofxSerial\libs\serial;..\..\..\addons\ofxSerial\libs\serial\include;..\..\..\addons\ofxSerial\libs\serial\include\serial;..\..\..\addons\ofxSerial\libs\serial\include\serial\impl;..\..\..\addons\ofxSerial\libs\serial\src;..\..\..\addons\ofxSerial\libs\serial\src\impl;..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports;..\..\..\addons\ofxSerial\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\globals.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiComponent.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxDatGui\src\ofxDatGui.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\lz4\src\lz4.c" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\Base64Encoding.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\ByteBuffer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\ByteBufferReader.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\ByteBufferStream.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\ByteBufferUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\ByteBufferWriter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\COBSEncoding.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\Compression.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\DeviceFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\DirectoryFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\DirectoryUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\DirectoryWatcher.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\DirectoryWatcherManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\FileExtensionFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\HexBinaryEncoding.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\HiddenFileFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\LinkFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\PathFilterCollection.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\RecursiveDirectoryIterator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\RecursiveDirectoryIteratorStategies.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\RegexPathFilter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\SearchPath.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\SLIPEncoding.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\ofxIO\src\URIEncoding.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy-sinksource.cc" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy-stubs-internal.cc" />
+    <ClCompile Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy.cc" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxBaseMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiMessage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\ofxSerial\src\BufferedSerialDevice.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\ofxSerial\src\SerialDevice.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\ofxSerial\src\SerialDeviceUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports\list_ports_linux.cc" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports\list_ports_osx.cc" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\serial\src\impl\list_ports\list_ports_win.cc" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\serial\src\impl\unix.cc" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\serial\src\impl\win.cc" />
+    <ClCompile Include="..\..\..\addons\ofxSerial\libs\serial\src\serial.cc" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\globals.h" />
+    <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGui2dPad.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiColorPicker.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiControls.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiFRM.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiGroups.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiLabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiMatrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiScrollView.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiTextInput.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiTextInputField.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiTimeGraph.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiComponent.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiEvents.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiIntObject.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\ofxDatGui.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\themes\ofxDatGuiTheme.h" />
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\themes\ofxDatGuiThemes.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\src\ofxIO.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\alphanum\include\alphanum.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\cpp-lru-cache\include\lrucache.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\json\include\json.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\lz4\src\lz4.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\DirectoryWatcher.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\AbstractTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\Base64Encoding.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\ByteBuffer.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\ByteBufferReader.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\ByteBufferStream.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\ByteBufferUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\ByteBufferWriter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\COBSEncoding.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\Compression.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\DeviceFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\DirectoryFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\DirectoryUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\DirectoryWatcherManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\FileExtensionFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\HexBinaryEncoding.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\HiddenFileFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\LinkFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\PathFilterCollection.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\RegexPathFilter.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\SearchPath.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\SLIPEncoding.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\IO\URIEncoding.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\RecursiveDirectoryIterator.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\RecursiveDirectoryIteratorImpl.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\ofxIO\include\ofx\RecursiveDirectoryIteratorStategies.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy-internal.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy-sinksource.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy-stubs-internal.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy-stubs-public.h" />
+    <ClInclude Include="..\..\..\addons\ofxIO\libs\snappy\src\snappy.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxBaseMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\src\ofxSerial.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO\BufferedSerialDevice.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO\PacketSerialDevice.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO\SerialDevice.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO\SerialDeviceUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\ofxSerial\include\ofx\IO\SerialEvents.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\serial\include\serial\impl\unix.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\serial\include\serial\impl\win.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\serial\include\serial\serial.h" />
+    <ClInclude Include="..\..\..\addons\ofxSerial\libs\serial\include\serial\v8stdint.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="icon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

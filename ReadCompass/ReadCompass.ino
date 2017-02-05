@@ -26,26 +26,15 @@ void loop()
   /* Get a new sensor event */ 
   sensors_event_t event; 
   mag.getEvent(&event);
+
+  String data;
+  data.concat(event.magnetic.x*100);
+  data.concat("/");
+  data.concat(event.magnetic.y*100);  
+  data.concat("/");
+  data.concat(event.magnetic.z*100);
   
-  float heading = atan2(event.magnetic.y, event.magnetic.x);
-
-  float declinationAngle = 0.39;
-  heading += declinationAngle;
-
-  // Correct for when signs are reversed.
-  if(heading < 0)
-    heading += 2*PI;
-    
-  // Check for wrap due to addition of declination.
-  if(heading > 2*PI)
-    heading -= 2*PI;
-
-  // Convert radians to degrees 
-  float headingDegrees = heading * 180/M_PI; 
-
-  int dataToGo = headingDegrees * 1000;
-
-  Serial.write(dataToGo);
+  Serial.write(data.toInt());
 
   //separator
   Serial.write("a");

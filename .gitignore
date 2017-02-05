@@ -133,3 +133,7 @@ Desktop.ini
 
 .mailmap
 /apps*/
+of_v0.9.8_vs_release/docs/
+of_v0.9.8_vs_release/addons/ofxAssimpModelLoader/
+of_v0.9.8_vs_release/addons/ofxOpenCv/
+of_v0.9.8_vs_release/projectGenerator-vs/

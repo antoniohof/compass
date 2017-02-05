@@ -6,6 +6,7 @@
 #include "ofxSerial.h"
 #include "globals.h"
 
+
 class ofApp : public ofBaseApp{
 
 public:
@@ -39,6 +40,9 @@ public:
     //midi
     string selectedMidiDevice;
     ofxMidiOut midiOut;
+	vector<pair<int, int>> midiOutputs;
+	double midiSendInterval;
+	void sendMidiData();
 
     void refreshMidiList();
 

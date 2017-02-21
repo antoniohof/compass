@@ -50,7 +50,7 @@ tests/**/gcc-release/
 *.cpp.eep
 *.cpp.elf
 *.cpp.hex
-
+*.exe
 #########################
 # IDE
 #########################

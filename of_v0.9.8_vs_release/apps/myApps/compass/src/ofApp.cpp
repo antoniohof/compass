@@ -28,7 +28,7 @@ void ofApp::setup(){
     //intro
     logo.load("logo.png");
 
-	//setup midi
+	//setup midii
 	variables.push_back("x");
 	variables.push_back("y");
 	variables.push_back("z");
@@ -76,19 +76,22 @@ void ofApp::update(){
                 for (std::size_t i = 0; i < sz; ++i)
                 {
                     if(buffer[i] == ofToChar(globals::separator)) {
-                        ofLog() << "[SERIAL]" << "received: " << data.str();
+                       // ofLog() << "[SERIAL]" << "received: " << data.str();
 						parseData(data.str());
                         data.clear();
+						break;
                     }else{
                         data << buffer[i];
                     }
                 }
+				break;
             }
         }
         catch (const std::exception& exc)
         {
             ofLogError("[UPDATE] error reading data!") << exc.what();
-        }
+        }           
+
         
 		calculateHeading();
 
@@ -105,7 +108,8 @@ void ofApp::update(){
 	//midi
 	//if active send to channels
 	midiSendInterval += ofGetLastFrameTime();
-	if (midiSendInterval > 0.1) {
+	if (midiSendInterval > 0.25) {
+		midiSendInterval = 0;
 		sendMidiData();
 	}
 }
@@ -128,8 +132,8 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-			ofx::IO::ByteBuffer textBuffer1("5000/10000/56000");
-			ofx::IO::ByteBuffer textBuffer2("60000/100/90000");
+			ofx::IO::ByteBuffer textBuffer1("50/80/30");
+			ofx::IO::ByteBuffer textBuffer2("10/5/70");
 
     switch (key) {
         case ' ':
@@ -173,11 +177,11 @@ void ofApp::sendMidiData() {
 		int cc = midiOutputs[i].second;
 		string variable = midiMenu->getDropdown("variable to send " + ofToString(i))->getSelected()->getLabel();
 		float value = 0;
-		ofLog() << "variable > " + variable;
-		if (variable == "x") value = compassValues.x;
-		else if (variable == "y") value = compassValues.y;
-		else if (variable == "z") value = compassValues.z;
-		else if (variable == "heading") value = compassHeading;
+		if (variable == "x") value = ofMap(compassValues.x, -20.0f, 20.0f, 0, 127, true);
+		else if (variable == "y") value = ofMap(compassValues.y, -20.0f, 20.0f, 0, 127, true);
+		else if (variable == "z") value = ofMap(compassValues.z, -20.0f, 20.0f, 0, 127, true);
+		else if (variable == "heading") value = ofMap(compassHeading, 0.f, 360.0f, 0, 127, true);;
+
 		if (isActive && value != 0) {
 			midiOut.sendControlChange(channel, cc, value);
 		}
@@ -209,6 +213,9 @@ void ofApp::calculateHeading() {
 
 	// Convert radians to degrees
 	compassHeading = heading * 180 / PI;
+
+	serialMenu->getTextInput("HEADING")->setText(ofToString(compassHeading));
+	//ofLog() << "heading: " << compassHeading;
 }
 
 void ofApp::parseData(string data) {
@@ -220,8 +227,6 @@ void ofApp::parseData(string data) {
 		float y = ofToFloat(parsedData[1]) / 100;
 		float z = ofToFloat(parsedData[2]) / 100;
 		compassValues = ofVec3f(x, y, z);
-
-		ofLog() << "x:" << compassValues.x << "/ y:" << compassValues.y << "/ z:" << compassValues.z;
 	}
 }
 
@@ -274,12 +279,10 @@ void ofApp::setupInterface(){
 	//make it a for loop
 	for (int i = 0; i < midiOutputs.size(); i++) {
 		midiMenu->addLabel("output " + ofToString(i))->setBackgroundColor(ofColor(150, 0, 0));
-		midiMenu->addDropdown("variable to send " + ofToString(i), variables);
 		midiMenu->addToggle("active " + ofToString(i));
-		ofxDatGuiFolder * outputConfigFolder = new ofxDatGuiFolder("config " + ofToString(i));
-		outputConfigFolder->addTextInput("channel", ofToString(midiOutputs[i].first));
-		outputConfigFolder->addTextInput("cc", ofToString(midiOutputs[i].second));
-		midiMenu->addFolder(outputConfigFolder);
+		midiMenu->addDropdown("variable to send " + ofToString(i), variables);
+		midiMenu->addTextInput("channel " + ofToString(i), ofToString(midiOutputs[i].first));
+		midiMenu->addTextInput("cc " + ofToString(i), ofToString(midiOutputs[i].second));
 
 		midiMenu->addBreak();
 		midiMenu->addBreak();
@@ -288,6 +291,8 @@ void ofApp::setupInterface(){
 	
     midiMenu->onButtonEvent(this, &ofApp::onButtonEvent);
     midiMenu->onDropdownEvent(this, &ofApp::onDropdownEvent);
+	midiMenu->onTextInputEvent(this, &ofApp::onTextInputEvent);
+
     
     //serial
     serialMenu = new ofxDatGui(0,0);
@@ -303,9 +308,10 @@ void ofApp::setupInterface(){
     serialMenu->addDropdown("orientation", orientations);
     serialMenu->addButton("save bluetooth config");
     serialMenu->addBreak();
-    serialMenu->addValuePlotter("x", -180, 180);
-    serialMenu->addValuePlotter("y", -180, 180);
-    serialMenu->addValuePlotter("z", -180, 180);
+    serialMenu->addValuePlotter("x", -20.0f, 20.0f);
+    serialMenu->addValuePlotter("y", -20.0f, 20.0f);
+    serialMenu->addValuePlotter("z", -20.0f, 20.0f);
+	serialMenu->addTextInput("HEADING", "");
 
 
     serialMenu->onButtonEvent(this, &ofApp::onButtonEvent);
@@ -360,7 +366,8 @@ void ofApp::onTextInputEvent(ofxDatGuiTextInputEvent e){
 
 	//callback to set chanel and stuff
 	for (int i = 0; i < midiOutputs.size(); i++) {
-		//midiMenu->getFolder("config " + ofToString(i))->getComponent(ofxDatGuiType::TEXT_INPUT,"channel")->get
+		midiOutputs[i].first = ofToInt(midiMenu->getTextInput("channel "  + ofToString(i))->getText());
+		midiOutputs[i].second = ofToInt(midiMenu->getTextInput("cc " + ofToString(i))->getText());
 	}
 }
 

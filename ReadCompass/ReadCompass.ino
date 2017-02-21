@@ -6,15 +6,21 @@ Adafruit_HMC5883_Unified mag = Adafruit_HMC5883_Unified(12345);
 
 void setup()
 {
-  Serial.println("[SETUP] - initializaing sensor");
 
-  Serial.begin(115200);
+  Serial.begin(38400);
+  delay(1000);
+
+  Serial.println("[SETUP] - initializing sensor");
+
 
    if(!mag.begin())
   {
     /* There was a problem detecting the HMC5883 ... check your connections */
-    Serial.println("Ooops, no HMC5883 detected ... Check your wiring!");
+    Serial.println("[SETUP] - Ooops, no HMC5883 detected ... Check your wiring!");
+    delay(100);    
     while(1);
+  }else {
+      Serial.println("[SETUP] - successfully conected to mag!");
   }
 
     displaySensorDetails();
@@ -34,10 +40,10 @@ void loop()
   data.concat("/");
   data.concat(event.magnetic.z*100);
   
-  Serial.write(data.toInt());
+  Serial.print(data);
 
   //separator
-  Serial.write("a");
+  Serial.print("a");
 
   delay(20);
 }

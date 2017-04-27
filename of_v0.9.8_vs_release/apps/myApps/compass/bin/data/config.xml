@@ -1,6 +1,0 @@
-<root>
-    <compassSerialName>COM5</compassSerialName>
-    <baudrate>38400</baudrate>
-    <compassOrientation>horizontal</compassOrientation>
-    <separator>a</separator>
-</root>

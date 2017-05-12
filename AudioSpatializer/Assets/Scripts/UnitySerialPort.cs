@@ -598,7 +598,7 @@ public class UnitySerialPort : MonoBehaviour
         // Loop through all available ports and add them to the list
         foreach (string cPort in System.IO.Ports.SerialPort.GetPortNames())
         {
-            comPorts.Add(cPort); // Debug.Log(cPort.ToString());
+            comPorts.Add(cPort);  Debug.Log("[Port] - " + cPort.ToString());
         }
 
         // Update the port status just in case :)

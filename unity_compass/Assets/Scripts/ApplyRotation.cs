@@ -12,6 +12,10 @@ public class ApplyRotation : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, SerialController.self.outputRotation, Time.deltaTime * easing);
+        Vector3 relativePos = Camera.main.transform.position - transform.position;
+
+        // the second argument, upwards, defaults to Vector3.up
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, SerialController.self.outputRotation * rotation, Time.deltaTime * easing);
 	}
 }

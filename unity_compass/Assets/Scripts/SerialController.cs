@@ -20,6 +20,7 @@ public class SerialController : MonoBehaviour
     public string status = "";
 
     public Quaternion outputRotation;
+    public Vector3 outputRotationEuler;
 
     void Awake()
     {
@@ -127,8 +128,16 @@ public class SerialController : MonoBehaviour
 
         if (values.Length == 5)
         {
-            outputRotation = new Quaternion(float.Parse(values[3]), float.Parse(values[2]), float.Parse(values[4]), float.Parse(values[1]));
-        }else
+            float x = float.Parse(values[1]);
+            float y = float.Parse(values[2]);
+            float z = float.Parse(values[3]);
+            float w = float.Parse(values[4]);
+
+            outputRotation = new Quaternion(x,y,z,w);
+
+            outputRotationEuler = outputRotation.eulerAngles;
+        }
+        else
         {
             Debug.Log("[SERIAL][ERROR] - received incomplete quaternion! " + "size:" + Convert.ToString(values.Length));
         }
